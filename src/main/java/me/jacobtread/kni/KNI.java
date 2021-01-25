@@ -197,8 +197,9 @@ public class KNI {
                     for (int i = 0; i < total; i++) {
                         // Determine which node list to use
                         NodeList nodeList = i >= generalNodeList.getLength() ? meetingNodeList : generalNodeList;
+                        int index = nodeList == meetingNodeList ? i - generalNodeList.getLength() : i;
                         // Parse the notice from the node
-                        Notice notice = parseNotice(nodeList.item(i));
+                        Notice notice = parseNotice(nodeList.item(index));
                         // Ignore invalid / null notices
                         if (notice != null) {
                             // Add the notice to the list
